@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div><a href="">Página principal</a></div>
+    <center><h1>{{ title }}{{ subtitle }}</h1></center>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+
+  </body>
+</html>
